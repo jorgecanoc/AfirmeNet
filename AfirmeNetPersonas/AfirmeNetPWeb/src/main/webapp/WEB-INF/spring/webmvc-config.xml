@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/jee
+http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<import resource="classpath*:services-config.xml" />
+
+	<!-- escaneado automatico de componentes de tipo @Component , @Repository, 
+		@Service, @Controller -->
+	<context:component-scan
+		base-package="com.afirme.afirmenet.web.controller,com.afirme.afirmenet.web.config" />
+
+
+	<!-- Configures the @Controller programming model -->
+	<mvc:annotation-driven />
+
+
+
+	<!-- the mvc resources tag does the magic -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+			</map>
+		</property>
+		<!--ContentNegotiating -->
+		<property name="defaultViews">
+			<list>
+				<!-- JSON View -->
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+				</bean>
+
+			</list>
+		</property>
+		<property name="ignoreAcceptHeader" value="true" />
+
+	</bean>
+	
+	<!-- Configuracion de viewResolver -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<property name="order" value="1" />
+	</bean>
+
+	<!-- Configuracion para Internacionalizacion y Localizacion -->
+
+	<!-- Archivo de Recursos -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+	<!-- Definicion Interceptores -->
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.afirme.afirmenet.web.interceptor.GlobalIntercerptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/ebank/**" />
+			<bean class="com.afirme.afirmenet.web.interceptor.SecurityInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+
+	<!-- Local Resolver por Session -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="es" />
+	</bean>
+
+	<!-- Declara bean para configuracion inicial -->
+	<bean name="initConfig" init-method="onInit"
+		class="com.afirme.afirmenet.web.config.InitConfig" />
+
+	<!-- Local Change Intercertor -->
+	<!-- <bean id="localeChangeInterceptor" -->
+	<!-- class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"> -->
+	<!-- <property name="paramName" value="language" /> -->
+	<!-- </bean> -->
+
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" 
+		> -->
+	<!-- <property name="interceptors"> -->
+	<!-- <list> -->
+	<!-- <ref bean="localeChangeInterceptor" /> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+</beans>

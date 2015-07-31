@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC
+	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
+	"http://java.sun.com/dtd/application_1_3.dtd">
+<application>
+  <display-name>AfirmeNetPWebEAR</display-name>
+  <description>AfirmeNet 2.0</description>
+  <module>
+    <web>
+      <web-uri>AfirmeNetP.war</web-uri>
+      <context-root>/AfirmeNetP</context-root>
+    </web>
+  </module>
+</application>

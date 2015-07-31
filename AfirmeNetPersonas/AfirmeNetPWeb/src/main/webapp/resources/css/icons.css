@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "afirme";
+  src:url("fonts/afirme.eot");
+  src:url("fonts/afirme.eot?#iefix") format("embedded-opentype"),
+    url("fonts/afirme.woff") format("woff"),
+    url("fonts/afirme.ttf") format("truetype"),
+    url("fonts/afirme.svg#afirme") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "afirme" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "afirme" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star:before {
+  content: "c";
+}
+.icon-exit:before {
+  content: "g";
+}
+.icon-flag:before {
+  content: "h";
+}
+.icon-graphic:before {
+  content: "j";
+}
+.icon-money:before {
+  content: "k";
+}
+.icon-search:before {
+  content: "l";
+}
+.icon-settings:before {
+  content: "m";
+}
+.icon-transfer:before {
+  content: "n";
+}
+.icon-wallet:before {
+  content: "o";
+}
+.icon-refresh:before {
+  content: "p";
+}
+.icon-edit:before {
+  content: "q";
+}
+.icon-delete:before {
+  content: "r";
+}
+.icon-add:before {
+  content: "s";
+}
+.icon-zoom:before {
+  content: "b";
+}
+.icon-plus:before {
+  content: "a";
+}
+.icon-close:before {
+  content: "d";
+}
+.icon-success:before {
+  content: "e";
+}
+.icon-print:before {
+  content: "f";
+}
+.icon-pdf:before {
+  content: "i";
+}
+.icon-conf:before {
+  content: "t";
+}

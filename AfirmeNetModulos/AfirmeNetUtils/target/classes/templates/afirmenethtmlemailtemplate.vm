@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>${title}</title>
+    <style type="text/css">
+        .txt_mail {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            font-weight: normal;
+            color: #666666;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table width="624" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="12"></td>
+            <td width="600">&nbsp;</td>
+            <td height="12"></td>
+        </tr>
+        <tr>
+            <td width="12" height="12"></td>
+            <td ></td>
+            <td width="12" height="12"></td>
+        </tr>
+        <tr>
+            <td width="10" height="150"></td>
+            <td width="600" valign="top">
+                <table width="600" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="100%" valign="bottom"></td>
+                    </tr>
+                    <tr>
+                        <td height="10" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" border="0" cellspacing="0">
+                                <tr>
+                                    <td valign="top" class="txt_mail">
+                                        <p><br />Apreciable <span style="color: #333333">${fullName}</span></b></p>
+                                        <br>
+                                        <p align="justify">
+                                           ${message}
+                                        </p>
+                                        <p>
+                                            <a href="${afirmeNetURL}">AfirmeNet</a>
+                                        </p>
+                                        <p>
+                                            Gracias por utilizar nuestros servicios en l&iacute;nea.
+                                        </p>
+                                        <p><i>Favor de no responder a este correo.</i></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="77%"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="12" height="150" valign="top"></td>
+        </tr>
+        <tr>
+            <td width="10"></td>
+            <td ></td>
+            <td width="12"></td>
+        </tr>
+    </table>
+</body>
+</html>

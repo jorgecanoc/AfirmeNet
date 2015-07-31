@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- Archivo de Recursos -->
+	<bean id="emailSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="mail" />
+	</bean>	
+		
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl" />
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">class</prop>
+				<prop key="class.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="sendAfirmeNetMail" class="com.afirme.afirmenet.utils.mail.SendAfirmeNetMail">
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="emailSource" ref="emailSource" />
+		
+	</bean>
+
+</beans>

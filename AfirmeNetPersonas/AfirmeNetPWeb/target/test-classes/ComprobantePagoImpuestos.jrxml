@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ComprobantePagoImpuestos" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1355"/>
+	<parameter name="TITULO" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\0jacancue\\Documents\\Trabajo\\Desarrollos\\AfirmeNet - Migracion\\Pago de Impuestos\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORTE" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBSUBREPORTE" class="net.sf.jasperreports.engine.JasperReport"/>
+	<field name="contratoId" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="operacion" class="java.lang.String"/>
+	<field name="cuentaCargo" class="java.lang.String"/>
+	<field name="nombreCliente" class="java.lang.String"/>
+	<field name="companiaAPagar" class="java.lang.String"/>
+	<field name="rfc" class="java.lang.String"/>
+	<field name="nombreRazonSocial" class="java.lang.String"/>
+	<field name="fechaHoraPago" class="java.lang.String"/>
+	<field name="numeroOperacion" class="java.lang.String"/>
+	<field name="llavePago" class="java.lang.String"/>
+	<field name="totalEfectivamentePagado" class="java.lang.String"/>
+	<field name="dependencia" class="java.lang.String"/>
+	<field name="conceptos" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="300" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="10" width="180" height="37"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\0jacancue\\Documents\\Trabajo\\Desarrollos\\AfirmeNet - Migracion\\Pago de Impuestos\\logoAfirme.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="203" y="11" width="355" height="37"/>
+				<textElement textAlignment="Center">
+					<font fontName="Helvetica" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="65" width="100" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Número de Contrato:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="95" width="100" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Operación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="125" width="100" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Nombre del Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Compañia de Servicios a Pagar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="155" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[R.F.C.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="170" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Denominación o Razón Social:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="185" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Fecha y Hora de Pago:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Número de Operación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="215" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Llave de Pago:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="230" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Total Efectivamente Pagado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="245" width="180" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement markup="none">
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia} == null || $F{dependencia}.equals("null")?"":"Dependencia:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="65" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="80" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{contratoId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="110" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentaCargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="125" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="140" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{companiaAPagar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="155" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{rfc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="170" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombreRazonSocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="185" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fechaHoraPago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="200" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{numeroOperacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="215" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{llavePago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="230" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{totalEfectivamentePagado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="203" y="245" width="355" height="15" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="203" y="270" width="355" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="280" width="180" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Por el siguiente concepto(s):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="110" width="100" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<text><![CDATA[Cuenta de Cargo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="95" width="355" height="15"/>
+				<textElement>
+					<font fontName="Helvetica" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{operacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="5" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="5"/>
+				<subreportParameter name="SUBSUBREPORTE">
+					<subreportParameterExpression><![CDATA[$P{SUBSUBREPORTE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{conceptos})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORTE}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

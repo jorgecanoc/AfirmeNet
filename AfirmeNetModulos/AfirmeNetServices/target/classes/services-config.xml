@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/jee
+http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<!-- Archivo de Recursos -->
+	<bean id="dibsSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="dibs" />
+	</bean>
+	<!-- escaneado automatico de componentes de tipo @Component , @Repository, 
+		@Service, @Controller -->
+	<context:component-scan
+		base-package="com.afirme.afirmenet.service,com.afirme.afirmenet.dao,com.afirme.afirmenet.helper.pagos.servicios" />
+
+	<!-- Configuracion del DataSource de AS400 -->
+
+<!-- 	<jee:jndi-lookup id="as400DataSource" jndi-name="jdbc/dsas400"/> -->
+
+	<bean id="as400DataSource" class="com.ibm.as400.access.AS400JDBCConnectionPoolDataSource">
+		<property name="serverName">
+			<value>172.20.70.96</value>
+		</property>
+		<property name="user">
+			<value>AFIJDBC</value>
+		</property>
+		<property name="password">
+			<value>AFIRME</value>
+		</property>
+		<property name="libraries" value="" />
+		<property name="dataTruncation" value="false" />
+		<property name="naming" value="sql" />
+		<property name="errors" value="full" />
+		<property name="trace" value="false" />
+		<property name="prompt" value="false" />
+	</bean>
+
+	<!-- Configuracion del DataSource de BD2 -->
+<!-- 	<jee:jndi-lookup id="db2DataSource" jndi-name="jdbc/dsdb2"/> -->
+<!-- 	<jee:jndi-lookup id="db2DataSource" jndi-name="java:comp/env/jdbc/DB2"/> -->
+	<bean id="db2DataSource"
+		class="com.ibm.db2.jcc.DB2DataSource">
+        <property name="serverName" value="172.30.4.78" />
+        <property name="portNumber" value="49120"/>
+        <property name="databaseName" value="AFIRME"/>
+        <property name="driverType" value="4"/>        
+		<property name="user" value="db2inst1" />
+		<property name="password" value="afidb22012" />
+	</bean>
+
+
+</beans>

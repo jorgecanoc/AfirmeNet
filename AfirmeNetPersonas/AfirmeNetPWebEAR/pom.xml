@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.afirme.afirmenet</groupId>
+    <artifactId>AfirmeNetPersonas</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>AfirmeNetPWebEAR</artifactId>
+  <packaging>ear</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>AfirmeNetPWeb</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>	
+		<dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>jcl-over-slf4j</artifactId>
+	        <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>AfirmeNet</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>${maven-ear-plugin}</version>				
+				<configuration>
+<!-- 					<archive> -->
+<!-- 						<manifestEntries> -->
+<!-- 							<Built-By>AFIRME</Built-By> -->
+<!-- 							<Version>${afirmenet.version}</Version> -->
+<!-- 							<Source_Version>${project.version}</Source_Version> -->
+<!-- 							<Changeset>${changeset}</Changeset> -->
+<!-- 							<Creation_Date>${maven.build.timestamp}</Creation_Date> -->
+<!-- 						</manifestEntries> -->
+<!-- 					</archive> -->
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>AfirmeNetPWeb</artifactId>
+							<contextRoot>/${path-afirmenet-personas-web}</contextRoot>
+							<bundleFileName>${path-afirmenet-personas-web}.war</bundleFileName>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<organization>
+		<url>https://www.afirme.com.mx</url>
+		<name>Afirme</name>
+	</organization>  
+</project>

@@ -1,0 +1,115 @@
+/*  - MENU - */
+.menu{
+	position: absolute;
+	left: 0; top: 75px;
+	width: 100%;
+}
+nav{ width: 235px; }
+
+/*  - BLOQUES - */
+.bloque, .cuenta{ padding: 7px 10px; -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15); box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15); position: relative; background-color: #FFF;  }
+.cuenta{ cursor: pointer; }
+.cuenta:hover, .l-verde a:hover{ background-color: #eeecec; }
+.cuenta h4, .cuenta h3{ margin-bottom: 5px; }
+.cuenta .icon, .refresh{ position: absolute; z-index: 10; }
+.refresh{ top: 10px; right: 20px; }
+.cuenta .icon-zoom{ bottom: 7px; right: 10px; height: 24px; }
+/*  Modif. Junio 12 fade */
+.cuenta .icon-zoom:after{
+	transition: all 200ms; 
+	-moz-transition: all 200ms; 
+	-webkit-transition: all 200ms; 
+	-o-transition: all 200ms;
+}
+.cuenta .icon-zoom:after{ opacity: 0; content:'VER DETALLE'; float: left; margin: 2px 5px 0 0 ; }
+.cuenta:hover .icon-zoom:after{ opacity: 1; }
+
+.bloque .head{ border-bottom: 1px solid #e6e6e6; }
+.bloque .head p{ margin: 2px 0 0; }
+.bloque .head .icon{ position: absolute; top: 0; right: 10px; }
+.bloque .head .icon-flag{ top: 5px; }
+.bloque .l-verde{ margin-left: -10px; margin-right: -10px; }
+.bloque .l-verde a{ padding: 15px 10px; }
+
+/*  - STAGE - */
+#stage{ position: relative; width: 100%; height: 760px; overflow: hidden; background-position: center top; -webkit-background-size: cover; background-size: cover; background-repeat: no-repeat; }
+#stage img{ max-width: 100%; width: auto; height: auto; min-height: 700px; z-index: -1; }
+#stage h1{ font-size: 50px; line-height: 100%; margin-bottom: 0; }
+#stage h1 small{ font-size: 40px; }
+#stage h4{ font-size: 21px; color: #000; }
+.stage-overlay{
+	height: 120px;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.15)), color-stop(100%,rgba(0,0,0,0))); 
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); 
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); 
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); 
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 );
+}
+/*  Modif. Junio 12 fade */
+.stage-overlay, #stage.video-over .stage-overlay{
+	transition: all 150ms linear; 
+	-moz-transition: all 150ms linear; 
+	-webkit-transition: all 150ms linear; 
+	-o-transition: all 150ms linear;
+}
+#stage.video-over .stage-overlay{ background-color: rgba(0,0,0,0.2); height: 100%; }
+#stage > .icon-play{
+	position: absolute;
+	top: 50%; left: 50%;
+	z-index: 1;
+	font-size: 180px;
+	color: #FFF;
+	margin: -150px 0 0 -90px;
+	-webkit-opacity:0.3; -moz-opacity:0.3; opacity:0.3; filter:alpha(opacity=30);
+}
+
+.txt-stage{ position: absolute; width: 100%; left: 0; bottom: 280px; }
+.txt-stage .col6{ background: rgb(255,255,255); background: rgba(255,255,255,0.8); padding: 25px; -webkit-border-radius: 4px; border-radius: 4px; z-index: 9; } 
+.txt-stage a.fR{ margin-top: 12px; color: #008d36; } 
+.txt-stage a.fR:hover{ text-decoration: underline; } 
+
+/*  - RESUMEN DE CUENTAS - */
+.resumen{ position: absolute; left: 0; bottom: 0; width: 100%; height: 245px; padding: 30px 0 70px; border-top: 2px solid #16af5f; background-color: rgb(249,246,242); background-color: rgba(249,246,242,0.8); }
+
+/**************************/
+/*     MEDIA QUERIES      */
+/**************************/
+
+@media (min-width: 992px){
+
+  .menu, nav > ul{ right: 0 !important; }
+
+}
+
+/*  - TABLET - */
+
+@media (max-width: 991px) {
+
+	#stage{ top: 0; height: auto; margin-bottom: 0; background-color: #e5e5e5; -webkit-background-size: auto 515px; background-size: auto 515px; }
+	#stage h1{ font-size: 30px; }
+	#stage h3{ font-size: 17px; }
+	.txt-stage, .resumen{ position: relative; bottom: auto; height: auto; }
+	.txt-stage{ margin-top: 175px; margin-bottom: 30px; }
+	.txt-stage .col6{ width: 100%; margin: 0; }
+	.txt-stage .btn{ margin-bottom: 10px; } 
+	.txt-stage .fR, .txt-stage .fL{ float: none; }
+	.txt-stage .fR{ display: block; }
+	.resumen{ padding: 30px 0; }
+
+}
+
+/*  - TABLET VERTICAL - */
+
+@media (max-width: 768px) {
+
+	.resumen .col3{ margin-bottom: 15px; width: 100%; }
+
+	.bloque .head .h4{ font-size: 20px; }
+	.bloque .head .icon-flag{ font-size: 26px; top: 0; }
+
+}

@@ -1,0 +1,26 @@
+<Configure id="dataSources" class="org.mortbay.jetty.webapp.WebAppContext">
+	<New id="DB2" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>jdbc/DB2</Arg>
+		<Arg>
+			<New class="com.ibm.db2.jcc.DB2DataSource">
+				<Set name="DatabaseName">AFIRME</Set>
+				<Set name="User">db2inst1</Set>
+				<Set name="Password">afidb22012</Set>
+				<Set name="ServerName">172.30.4.78</Set>
+				<Set name="PortNumber">49120</Set>
+				<Set name="DriverType">4</Set>
+			</New>
+		</Arg>
+	</New>
+	<New id="AS400" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>jdbc/as400</Arg>
+		<Arg>
+			<New class="com.ibm.as400.access.AS400JDBCConnectionPoolDataSource">
+				<Set name="DatabaseName">AFIRME</Set>
+				<Set name="User">AFIJDBC</Set>
+				<Set name="Password">AFIRME</Set>
+				<Set name="ServerName">172.20.70.96</Set>
+			</New>
+		</Arg>
+	</New>		
+</Configure>

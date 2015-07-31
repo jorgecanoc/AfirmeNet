@@ -1,0 +1,28 @@
+/*  -  BOTÓN ESTADO DE CUENTA - */
+.btn-edocuenta{ width: 170px; height: 170px; border: 10px solid #f4f4f4; background-color: #eeeeee; margin: 0 auto 20px; -webkit-border-radius: 50%; tac border-radius: 50%; display: block; }
+.btn-edocuenta:hover, .btn-edocuenta.act{ border-color: #cae8d5; background-color: #009639; }
+.btn-edocuenta .icon{ color: #c5c5c5; font-size: 80px; margin-top: 35px; }
+.btn-edocuenta:hover .icon, .btn-edocuenta.act .icon{ color: #fff; }
+
+/*  -  CAMPOS - */
+.campo{	border: 1px solid #cbcbcb; margin:0 auto 20px;	padding: 2px 4px 2px 15px;	-webkit-border-radius: 3px; border-radius: 3px;
+	width: 280px;	position: relative; display: table; text-align: left; }
+.campo .label{ 	width: 30%;	font-size: 17px;	line-height: 100%;	display: table-cell;	vertical-align: middle;	color: #00a950; } 
+.campo .input{ 	width: 70%;	display: table-cell;	border: none;	background: none;	padding: 0;	height: 36px;	vertical-align: middle;}
+.campo a.ayuda{ position: absolute; right: 0; top: 50%; background-color: #e6e6e6; width: 25px; height: 25px; -webkit-border-radius: 50%; border-radius: 50%; text-align: center; line-height: 25px; z-index: 10; margin-top: -12px; }
+
+/*  -  CONTRATO - */
+.contrato{ background-color: #fff; height: 300px; width: 100%; padding: 10px 15px; border: 1px solid #ddd; -webkit-border-radius: 5px; border-radius: 5px; overflow-y: scroll; overflow-x: hidden; text-align: left; }
+.contrato *{ -webkit-opacity:0.75; -moz-opacity:0.75; opacity:0.75; filter:alpha(opacity=75); }
+
+
+/*  - MOBILE - */
+@media (max-width: 640px) {
+
+	.campo input{ font-size: 17px; }
+	.campo input[type="password"]{ font-size: 12px; }
+
+	.radio-wrap{ float: none; }
+	input.radio:empty ~ label{ width: 100%; }
+
+}

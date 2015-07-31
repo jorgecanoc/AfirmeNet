@@ -1,0 +1,24 @@
+html, body{ height: 100%; }
+.contenido{ 
+	padding: 50px 80px;
+	max-height: 75%;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+.titulo-modal{
+	padding: 30px 40px 20px;
+	border-bottom: 1px solid #dadada;
+}
+.mb60{margin-bottom: 60px;}
+.contenido-modal{
+	padding: 20px 40px;
+}
+.botones{ padding: 20px 30px; border-top: 1px solid #dadada; }
+
+/*  - TABLET VERTICAL - */
+@media (max-width: 768px) {
+	.contenido{ 
+		padding: 30px;
+		max-height: 75%;
+	}
+}

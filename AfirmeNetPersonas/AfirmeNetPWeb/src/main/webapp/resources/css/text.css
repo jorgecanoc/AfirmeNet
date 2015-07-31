@@ -1,0 +1,91 @@
+/*@font-face {
+	font-family: 'Homestead-Inline';
+	src: url('fonts/Homestead-Inline.eot?#iefix') format('embedded-opentype'), 
+	     url('fonts/Homestead-Inline.woff') format('woff'), 
+	     url('fonts/Homestead-Inline.ttf')  format('truetype'),
+	     url('fonts/Homestead-Inline.svg#Homestead-Inline') format('svg');
+}*/
+h1, h2, h3, h4, p { margin:0 0 10px; padding:0; line-height:120%;	font-style: normal;	font-weight: normal;	font-variant: normal; }
+body, a, textarea, input {
+	color: #333;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+footer h1, footer h2{ font-weight: 200;}
+nav a, #bienvenida *, .titular, p, p a, .head-operacion h2, .pasos p, input, label, .grafica span, .menu-open nav ul ul a:hover, .menu-open nav ul ul .active > a{ font-weight: 300;}
+.texto-stage p{ font-weight: 400;}
+strong, nav ul ul a:hover, nav ul ul .active > a, .btn, .pasos .active p, .texto-banner{ font-weight: 700; }
+
+h1, h1 a, nav a, .texto-stage .btn, .head-operacion h1, .f21, .menu-open nav .nivel-1 > li > a{ font-size: 21px; }
+h2, h2 a, .btn.btn-lg, .f19 { font-size: 19px; }
+h3, h3 a, label, fieldset p{ font-size: 17px; }	
+h4, h4 a, #bienvenida em, nav .nivel-2 a, .f13, header .notificaciones, .checkbox {	font-size: 13px; }
+p, p a, input, .texto-banner, .menu-open nav ul .nivel-2 a{	font-size: 16px; }
+
+/* Size */
+#usuario .notificaciones{ font-size: 11px; }
+nav .nivel-1 > li > a, .btn, .f15, .l-gris a{ font-size: 15px; }
+.titular, .f23, .texto-oferta p{ font-size: 23px; }
+.f26{ font-size: 26px;}
+.texto-stage p, .g80 span{ font-size: 28px; }
+footer h1{ font-size: 31px; }
+.g128 span{ font-size: 38px; }
+.texto-stage h1{ font-size: 60px; }
+
+.l16, .texto-banner{ line-height: 16px; }
+header .notificaciones{ line-height: 20px; }
+#bienvenida *, fieldset label, fieldset p{ line-height: 27px; }
+.favorita p{ line-height: 30px; }
+nav .nivel-1 a{ line-height: 35px; }
+.l40{ line-height: 40px; }
+.menu-open nav .nivel-1 > li > a, .menu-open nav .nivel-2 a{ line-height: 50px; }
+
+/* Color */
+.notificaciones, nav #op-1, .btn, h1.titular, .favorita p, .texto-oferta p, .texto-banner{ color:#FFF; }
+footer h2, footer p, footer p a #bienvenida p, .f666, .grafica span{ color: #666; }
+footer h1{ color: #00A569; }
+#bienvenida em, .f-verde, .texto-stage h1, nav > ul > li > a:hover, nav > ul > .active > a, nav > ul > .current > a, nav > ul > .current .current > a{ color: #008454; }
+.texto-stage p, a.f666:hover{ color: #000; }
+.head-operacion h1, .pasos .active p{ color: #00A568; }
+.pasos p{ color: #999; }
+.blanco{ color: #FF604A;}
+
+/* Estilo */
+::-webkit-input-placeholder { font-style: italic; }
+:-moz-placeholder { font-style: italic; }
+::-moz-placeholder { font-style: italic; }
+:-ms-input-placeholder { font-style: italic; }
+
+/*			- Media Queries -			*/
+
+@media (max-width: 991px) {
+
+	.texto-stage h1{ font-size: 33px; font-weight: 400; }
+	.texto-stage p{ font-size: 18px; margin-bottom: 20px; }
+	#bienvenida p, #bienvenida em{ color:#FFF; }
+	#bienvenida *{ line-height: 120%; }
+	#bienvenida em{ font-size: 14px; }
+	#bienvenida p{ font-size: 18px; }
+	#bienvenida p span{ font-weight: 700; }
+
+}
+
+
+/*  - 768 BREAKPOINT - */
+
+@media (max-width: 768px) {
+
+  .separador p{ font-size: 18px; }
+  .texto-oferta p{ font-size: 19px; }
+
+}
+
+@media (max-width: 480px) {
+
+	fieldset label, .form-opcional *{ font-size: 18px; line-height: 120%; }
+	.destino h2{ font-size: 22px; }
+
+}
